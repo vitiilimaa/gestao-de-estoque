@@ -1,0 +1,41 @@
+.navContainer {
+  gap: 0
+}
+
+.tab {
+  padding: 15px 25px;
+  border: 0 solid transparent;
+  border-bottom-width: 2px;
+  cursor: pointer;
+  position: relative;
+  white-space: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  top: 1px;
+  transition: 0.2s;
+}
+
+.tab:hover {
+  border-color: white;
+  color: #fff;
+}
+
+.choicedTab {
+  border-color: white;
+  color: #fff;
+}
+
+hr {
+  margin: 0 0 30px;
+}
+
+.screensContainer {
+  padding: 0;
+}
+
+@media (min-width: 459px) {
+  .screensContainer {
+    padding: 0 50px;
+  }
+}

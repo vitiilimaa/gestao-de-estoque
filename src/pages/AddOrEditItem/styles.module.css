@@ -1,0 +1,20 @@
+.wrapper {
+  display: flex;
+  gap: 15px 20px;
+  flex-wrap: wrap;
+}
+
+.btnContainer {
+  width: 100%;
+}
+
+button {
+  width: 100%;
+  float: right;
+}
+
+@media (min-width: 459px) {
+  button {
+    width: auto;
+  }
+}
