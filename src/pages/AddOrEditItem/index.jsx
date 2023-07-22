@@ -57,7 +57,6 @@ const AddOrEditItem = ({ isEditItem }) => {
           clearStates();
         } else {
           //buscamos o index do objeto da linha selecionada entre todos os itens da tabela e depois trocamos ele pelo já editado
-          console.log(items, item)
           const index = items.findIndex((itemArray) => itemArray.id === item.id);
           if (index >= 0) {
             items.splice(index, 1, itemObj);

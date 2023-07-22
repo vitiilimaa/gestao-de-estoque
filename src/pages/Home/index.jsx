@@ -10,11 +10,7 @@ const Home = () => {
   const items = useLoaderData();
   const { setTitle } = useContext(GlobalContext);
 
-  const itemsDiversity = () => {
-    const uniqueItems = {};
-    items.forEach((itemObj) => (uniqueItems[itemObj.name] = true));
-    return Object.keys(uniqueItems);
-  };
+  const totalInventory = items.reduce((acc, item) => acc + +item.quantity, 0)
   const currentItems = items.filter((item) => formatDate(item.createdAt));
   const itemsRunningOut = items.filter((item) => item.quantity < 10);
 
@@ -23,8 +19,8 @@ const Home = () => {
   return (
     <div className={styles.container}>
       <div className={styles.dashboardSection}>
-        <Card title="Diversidade de itens" value={itemsDiversity().length} />
-        <Card title="Inventário total" value={items.length} />
+        <Card title="Diversidade de itens" value={items.length} />
+        <Card title="Inventário total" value={totalInventory} />
         <Card title="Itens recentes" value={currentItems.length} />
         <Card title="Itens acabando" value={itemsRunningOut.length} />
       </div>
