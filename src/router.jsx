@@ -1,10 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import RootLayout from "./pages/RootLayout";
 import Home from "./pages/Home";
-import ItemsNavbar from "./components/ItemsNavbar";
-import Items from "./pages/Items/Items";
-import ViewItem from "./pages/ViewItem";
-import AddOrEditItem from "./pages/AddOrEditItem";
+import ItemsLayout from "./pages/items/ItemsLayout";
+import ListItems from "./pages/items/ListItems";
+import ViewItem from "./pages/items/ViewItem";
+import AddOrEditItem from "./pages/items/AddOrEditItem";
 import ItemBoundary from "./error-boundaries/ItemBoundary";
 import { loadItems, loadItem } from "./loaders/items";
 
@@ -18,11 +18,11 @@ const router = createBrowserRouter([{
     loader: loadItems,
   }, {
     path: "/items",
-    element: <ItemsNavbar />,
+    element: <ItemsLayout />,
     loader: loadItems,
     children: [{
       index: true,
-      element: <Items />,
+      element: <ListItems />,
       loader: loadItems,
     }, {
       path: ":itemId/:itemName",

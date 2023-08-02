@@ -1,8 +1,8 @@
 import { useState, useContext } from "react";
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import styles from "./styles.module.css";
-import MiniCard from "../../components/MiniCard";
-import GlobalContext from "../../contexts/GlobalContext";
+import MiniCard from "../../../components/MiniCard";
+import GlobalContext from "../../../contexts/GlobalContext";
 
 const ViewItem = () => {
   const { setNotification } = useContext(GlobalContext);

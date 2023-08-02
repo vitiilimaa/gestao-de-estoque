@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import styles from "./styles.module.css";
-import GlobalContext from "../../contexts/GlobalContext";
+import GlobalContext from "../../../contexts/GlobalContext";
 
 const ItemsNavbar = () => {
   const { setTitle } = useContext(GlobalContext);

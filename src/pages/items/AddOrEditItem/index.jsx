@@ -1,10 +1,10 @@
 import { useState, useEffect, useContext } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
-import formatDate from "../../functions/formatDate";
-import GlobalContext from "../../contexts/GlobalContext";
+import formatDate from "../../../functions/formatDate";
+import GlobalContext from "../../../contexts/GlobalContext";
 import styles from "./styles.module.css";
-import Input from "../../components/Input";
-import TextArea from "../../components/TextArea";
+import Input from "../../../components/Input";
+import TextArea from "../../../components/TextArea";
 
 const AddOrEditItem = ({ isEditItem }) => {
   const { setNotification } = useContext(GlobalContext);
@@ -50,13 +50,13 @@ const AddOrEditItem = ({ isEditItem }) => {
 
     try {
       if (Object.keys(itemObj).length) {
-        //se a const item retornar um array, significa que não estamos trabalhando com o objeto de uma linha selecionada da tabela
+        //se a const item retornar um array, significa que não estamos trabalhando com o objeto de uma linha selecionada da tabela (Novo Item)
         if (Array.isArray(item)) {
           localStorage.setItem("items", JSON.stringify([...items, itemObj]));
           showNotification("add", "Item adicionado com sucesso!");
           clearStates();
         } else {
-          //buscamos o index do objeto da linha selecionada entre todos os itens da tabela e depois trocamos ele pelo já editado
+          //buscamos o index do objeto da linha selecionada entre todos os itens da tabela e depois trocamos ele pelo já editado (Editar Item)
           const index = items.findIndex((itemArray) => itemArray.id === item.id);
           if (index >= 0) {
             items.splice(index, 1, itemObj);
