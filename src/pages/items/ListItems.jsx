@@ -1,8 +1,8 @@
-import { useLoaderData } from "react-router-dom";
-import Table from "../../../components/Table";
+import useStock from "../../hooks/useStock";
+import { Table } from "../../components";
 
 const Items = () => {
-  const items = useLoaderData();
+  const { items } = useStock()
 
   return (
     <Table
@@ -21,7 +21,7 @@ const Items = () => {
         dataField: "category",
       }]}
       actions={{ view: true, update: true, delete: true }}
-    ></Table>
+    />
   );
 }
 

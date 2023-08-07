@@ -1,8 +1,13 @@
-import styles from "./styles.module.css";
-
 const TextArea = ({ id, label, value, setValue, cols, rows, ...props }) => {
+  const handleChange = (e) => {
+    setValue((currentState) => ({
+      ...currentState,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
   return (
-    <div className={styles.textAreaField}>
+    <div className="containerTextArea">
       <label htmlFor={id}>{label}</label>
       <textarea
         {...props}
@@ -12,8 +17,8 @@ const TextArea = ({ id, label, value, setValue, cols, rows, ...props }) => {
         cols={cols || "30"}
         rows={rows || "10"}
         value={value}
-        onChange={(e) => setValue(e.currentTarget.value)}
-      ></textarea>
+        onChange={handleChange}
+      />
     </div>
   );
 };

@@ -1,8 +1,6 @@
-import styles from "./styles.module.css";
-
 const MiniCard = ({ title, value }) => {
   return (
-    <span className={styles.container}>
+    <span className="containerMiniCard">
       <b>{title}:</b>
       {value}
     </span>

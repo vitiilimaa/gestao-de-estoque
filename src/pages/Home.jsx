@@ -1,30 +1,32 @@
-import { useContext, useEffect } from "react";
-import { useLoaderData } from "react-router-dom";
-import formatDate from "../../functions/formatDate";
-import styles from "./styles.module.css";
-import Card from "../../components/Card";
-import Table from "../../components/Table";
-import GlobalContext from "../../contexts/GlobalContext";
+import { Card, Table } from "../components";
+import useStock from "../hooks/useStock";
 
 const Home = () => {
-  const items = useLoaderData();
-  const { setTitle } = useContext(GlobalContext);
+  const { items } = useStock()
 
-  const totalInventory = items.reduce((acc, item) => acc + +item.quantity, 0)
-  const currentItems = items.filter((item) => formatDate(item.createdAt));
+  const totalInventory = items.reduce((acc, item) => acc + +item.quantity, 0);
+  const limitDate = new Date()
+  limitDate.setDate(limitDate.getDate() - 10)
+  const currentItems = items.filter(item => {
+    const dateDivided = item.createdAt.split("/")
+    const day = dateDivided[0]
+    const month = dateDivided[1]
+    const year = dateDivided[2]
+    const dateFormated = new Date(year, month, day)
+    return dateFormated > limitDate
+  })  
   const itemsRunningOut = items.filter((item) => item.quantity < 10);
 
-  useEffect(() => setTitle("Dashboard"), []);
-
   return (
-    <div className={styles.container}>
-      <div className={styles.dashboardSection}>
+    <div className="containerHome">
+      <h1 className="title">Dashboard</h1>
+      <div className="cardsSection">
         <Card title="Diversidade de itens" value={items.length} />
         <Card title="Inventário total" value={totalInventory} />
         <Card title="Itens recentes" value={currentItems.length} />
         <Card title="Itens acabando" value={itemsRunningOut.length} />
       </div>
-      <div className={styles.dashboardSection}>
+      <div className="tablesSection">
         <Table
           columns={[{
             name: "Itens recentes",

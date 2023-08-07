@@ -26,7 +26,8 @@ const ItemBoundary = () => {
   return (
     <>
       {message}
-      <button 
+      <button
+        className="btn"
         style={{ padding: "10px 30px", float: "left" }} 
         onClick={() => navigate("/")}>
         Ir para página inicial
