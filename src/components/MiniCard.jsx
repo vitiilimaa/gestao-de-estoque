@@ -1,7 +1,7 @@
 const MiniCard = ({ title, value }) => {
   return (
     <span className="containerMiniCard">
-      <b style={{whiteSpace: "nowrap"}}>{title}:</b>
+      <b>{title}:</b>
       {value}
     </span>
   );
