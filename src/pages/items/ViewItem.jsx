@@ -7,7 +7,8 @@ const ViewItem = () => {
   const { itemId } = useParams()
 
   const item = getItem(itemId)
-  const formatedPrice = +item.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  const price = +item.price
+  const formatedPrice = price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
   return (
     <>

@@ -347,15 +347,14 @@ td {
 /* MiniCard */
 .containerMiniCard {
   display: flex;
-  min-width: 200px;
-  gap: 5px;
+  min-width: 240px;
+  gap: 8px;
   justify-content: center;
   align-items: center;
   background-color: #1a1a1a;
   margin-right: 2rem;
   padding: 15px;
   border-radius: 5px;
-  white-space: nowrap;
   cursor: default;
 }
 
